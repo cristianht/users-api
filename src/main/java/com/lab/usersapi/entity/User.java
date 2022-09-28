@@ -1,6 +1,9 @@
 package com.lab.usersapi.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -10,10 +13,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @NotBlank
+    @Column (nullable = false, length = 30)
     private String name;
 
+    @NotNull
+    @NotBlank
     private String lastname;
 
+    @NotNull
+    @Email
     private String email;
 
     private String phone;
